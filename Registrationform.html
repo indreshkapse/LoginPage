@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bank Registration Form </title>
+    <style>
+            input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 1.5px;
+            box-sizing: border-box;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            
+          }
+          
+          input[type=submit] {
+            background-color: #5f5af0;
+            color: white;
+          }
+          
+          .container {
+            background-color: #b79162;
+            padding: 20px;
+          }
+          
+          #message {
+            display:none;
+            background: #f1f1f1;
+            color: #000;
+            position: relative;
+            padding: 20px;
+            margin-top: 10px;
+          }
+          
+          #message p {
+            padding: 10px 35px;
+            font-size: 18px;
+          }
+        
+          .valid {
+            color: rgb(23, 0, 128);
+          }
+          
+          .valid:before {
+            position: relative;
+            left: -35px;
+            content: "YES";
+          }
+  
+          .invalid {
+            color: red;
+          }
+          
+          .invalid:before {
+            position: relative;
+            left: -35px;
+            content: "NO";
+          }
+    </style>
+ </head> 
+ 
+ <body>
+    <h1>Registration Form</h1>
+    <div class = "container">
+        <form>
+            <label for="fname">First Name</label>
+            <input type="text" placeholder=" Enter Your First Name" id="fname" name="fname" pattern="(?=.*[A-Z])(?=.[a-z]).{2,}" tittle="Only use letters"  required>
+            <br>
+
+            <label for="lname">Last Name</label>
+            <input type="text" placeholder=" Enter Your Last Name" id="lname" name="lname" pattern="(?=.*[A-Z])(?=.[a-z]).{2,}" tittle="Only use letters"  required>
+            <br>
+
+            <label for="address">Address</label>
+            <input type="text" placeholder=" Enter Your Address"id="lname" name="address" pattern="(?=.*[A-Z])(?=.[a-z]).{2,}"   required>
+            <br>
+             
+            <label for="email">E-mail I'd </label>
+            <input type="email" placeholder=" Enter Your e-mail " id="email" name="email"  required>
+            <br>
+
+            <label for="number">Mobile Number </label>
+            <input type="text" placeholder=" Enter Your Mobile Number" id="number" name="number"  maxlength="10" required>
+            <br>
+
+            <label for="acnumber">Account Number</label>
+            <input type="text"  placeholder=" Enter Your Account Number" id="acnumber" name="acnumber" maxlength="12"  required>
+            <br>
+
+            <label for="Branch"> Branch</label>
+            <input type="text" placeholder=" Branch " id=" Branch" name=" Branch" pattern="(?=.*[A-Z])(?=.[a-z]).{2,}" tittle="Only use letters"  required>
+            <br>
+
+            <label for="city">City</label>
+            <input type="city" id="city" name="city" pattern="(?=.*[A-Z])(?=.[a-z]).{2,}" required>
+            <br>
+
+            <label for="state">State</label>
+            <input type="state" id="state" name="state" pattern="(?=.*[A-Z])(?=.[a-z]).{2,}" required>
+            <br>
+
+            <label for="pincode">Pin Code </label>
+            <input type="text"  placeholder=" Enter Pincode" id="pincode" name="pincode"  maxlength="6" required>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+   
+        <div id="message"> 
+          <h2>Form Deatails</h2>
+           <p id="fname" class="invalid">First Letter <b>Capital</b></p>
+           <p id="lname" class="invalid">First Letter <b>Capital</b></p><br>
+           <p id="address" class="invalid"></p>
+           <p id="email" class="invalid"></p>
+           <p id="number" class="invalid">Maximum <b>10</b> number</p>
+           <p id="acnumber" class="invalid">Minimum <b>12</b> Numbers</p>
+           <p id="city" class="invalid">First Letter <b>Capital</b></p>
+           <p id="state" class="invalid">First Letter <b>Capital</b></p>
+           <p id="Pincode" class="invalid"></p>
+           
+   
+        </div>
+ </body>
+</html>

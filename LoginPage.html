@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>My Hello webpage</title>
+    <style>
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+          }
+          
+          /* Style the submit button */
+          input[type=submit] {
+            background-color: #5f5af0;
+            color: white;
+          }
+          
+          /* Style the container for inputs */
+          .container {
+            background-color: #f8faef;
+            padding: 20px;
+          }
+          
+          /* The message box is shown when the user clicks on the password field */
+          #message {
+            display:none;
+            background: #f1f1f1;
+            color: #000;
+            position: relative;
+            padding: 20px;
+            margin-top: 10px;
+          }
+          
+          #message p {
+            padding: 10px 35px;
+            font-size: 18px;
+          }
+          
+          /* Add a green text color and a checkmark when the requirements are right */
+          .valid {
+            color: rgb(23, 0, 128);
+          }
+          
+          .valid:before {
+            position: relative;
+            left: -35px;
+            content: "YES";
+          }
+          
+          /* Add a red text color and an "x" when the requirements are wrong */
+          .invalid {
+            color: red;
+          }
+          
+          .invalid:before {
+            position: relative;
+            left: -35px;
+            content: "NO";
+          }
+
+    </style>
+</head>
+
+<body>
+    <h1> Login validation Form</h1>
+    <div class="container">
+        <form action="/action_page.php">
+            <label for="username">User Name</label>
+            <input type="text" id="username" name="userName" required>
+            <br>
+            <label for="pass">PassWord</label>
+            <input type="password" id="password" name="pwd" pattern="(?=.*[a-z])(?=.*[A-z])(?=.*\d).{8,}" title="give atleast one number,one Upper & one lowercase,min 8 characters" required>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div id="message"> 
+       <h2> The Password Details</h2>
+       <p id="lower" class="invalid">A <b>lower case</b> letter</p>
+       <p id="upper" class="invalid">A <b>upper case</b> letter</p>
+       <p id="number" class="invalid">A <b>number</b> </p>
+       <p id="length" class="invalid">Minmum <b>8</b> char</p>
+    </div>
+    <script>
+        var mypass = document.getElementById("password");
+        var lower =  document.getElementById("lower");
+        var upper =  document.getElementById("upper");
+        var number =  document.getElementById("number");
+        var length =  document.getElementById("length");
+
+        
+       mypass.onfocus = function() {
+    document.getElementById("message").style.display = "block";
+  }
+  
+  
+  mypass.onblur = function() {
+    document.getElementById("message").style.display = "none";
+  }
+       mypass.onkeyup= function(){
+           //lower case
+           var lowerCaseLetter = /[a-z]/g;
+           if(mypass.value.match( lowerCaseLetter)){
+           
+            lower.classList.remove("invalid");
+            lower.classList.add("valid");
+             }else{
+                lower.classList.remove("valid");
+                lower.classList.add("invalid");
+             }
+         //upper case
+         var UpperCaseLetter = /[A-Z]/g;
+           if(mypass.value.match( UpperCaseLetter)){
+           
+            upper.classList.remove("invalid");
+            upper.classList.add("valid");
+             }else{
+                upper.classList.remove("valid");
+                upper.classList.add("invalid");
+             }
+         //number
+         var numberchk = /[0-9]/g;
+           if(mypass.value.match( numberchk )){
+           
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+             }else{
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+             }
+        // character length
+        
+           if(mypass.value.length >= 8){
+           
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+             }else{
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+             }
+       }
+    </script>
+
+    
+
+</body>
+</html>

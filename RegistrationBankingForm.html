@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bank Registration Form </title>
+    <style>
+          input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 1.5px;
+            box-sizing: border-box;
+            margin-top: 2px;
+            margin-bottom: 7px;
+          }
+          
+          /* Style the submit button */
+          input[type=submit] {
+            background-color: #5f5af0;
+            color: white;
+          }
+          
+          /* Style the container for inputs */
+          .container {
+            background-color: #daec8d;
+            padding: 20px;
+          }
+          
+          /* The message box is shown when the user clicks on the password field */
+          #message {
+            display:none;
+            background: #f1f1f1;
+            color: #000;
+            position: relative;
+            padding: 20px;
+            margin-top: 10px;
+          }
+          
+          #message p {
+            padding: 10px 35px;
+            font-size: 18px;
+          }
+          
+          /* Add a green text color and a checkmark when the requirements are right */
+          .valid {
+            color: rgb(23, 0, 128);
+          }
+          
+          .valid:before {
+            position: relative;
+            left: -35px;
+            content: "YES";
+          }
+          
+          /* Add a red text color and an "x" when the requirements are wrong */
+          .invalid {
+            color: red;
+          }
+          
+          .invalid:before {
+            position: relative;
+            left: -35px;
+            content: "NO";
+          }
+    </style>
+ </head> 
+ 
+ <body>
+    <h1>Registration Form</h1>
+    <div class = "container">
+        <form>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" pattern="(?=.*[A-Z])(?=.[a-z]).{2,}" tittle="Only use letters"  required>
+            <br>
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" pattern="(?=.*[A-Z])(?=.[a-z]).{2,}" tittle="Only use letters"  required>
+            <br>
+
+            <label for="email">Enter your E-mail I'd </label>
+            <input type="email" id="email" name="email"  required>
+            <br>
+
+            <label for="number">Enter your mobile number </label>
+            <input type="number" id="number" name="number"  required>
+            <br>
+
+            <label for="acnumber">Enter Your Account Number</label>
+            <input type="number" id="acnumber" name="acnumber" pattern="(?=.*\d).{12,}" tittle="minimum 12 number" required>
+            <br>
+
+            <label for="city">City</label>
+            <input type="city" id="city" name="city" pattern="(?=.*[A-Z])(?=.[a-z]).{2,}" required>
+            <br>
+
+            <label for="state">State</label>
+            <input type="state" id="state" name="state" pattern="(?=.*[A-Z])(?=.[a-z]).{2,}" required>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    
+    <div id="message"> 
+       <h2>Form Deatails</h2>
+        <p id="fname" class="invalid">First Letter <b>Capital</b></p>
+        <p id="lname" class="invalid">First Letter <b>Capital</b></p><br>
+        <p id="email" class="invalid"></p>
+        <p id="number" class="invalid">Maximum <b>10</b> number</p>
+        <p id="acnumber" class="invalid">Minimum <b>12</b> Numbers</p>
+        <p id="city" class="invalid">First Letter <b>Capital</b></p>
+        <p id="state" class="invalid">First Letter <b>Capital</b></p>
+        
+
+     </div>
+
+     <script>
+        var fname = document.getElementById("fname");
+        var lname = document.getElementById("lname");
+        var email = document.getElementById("email");
+        var acnumber = document.getElementById("acnumber");
+
+        fname.onfocus = function() {
+    document.getElementById("message").style.display = "block";
+  }
+  
+  
+         fname.onblur = function() {
+    document.getElementById("message").style.display = "none";
+  }
+
+  lname.onfocus = function() {
+    document.getElementById("message").style.display = "block";
+  }
+  
+  
+         lname.onblur = function() {
+    document.getElementById("message").style.display = "none";
+  }
+
+
+  fname.onkeyup= function(){
+           var firstname = /[A-Z][a-z]/g;
+           if(fname.value.match( firstname)){
+           
+            firstname.classList.remove("invalid");
+            firstname.classList.add("valid");
+             }else{
+                firstname.classList.remove("valid");
+                firstname.classList.add("invalid");
+             }
+            }
+
+            lname.onkeyup= function(){
+           var lastname = /[A-Z][a-z]/g;
+           if(lname.value.match( lastname)){
+           
+            lastname.classList.remove("invalid");
+            lastname.classList.add("valid");
+             }else{
+                lastname.classList.remove("valid");
+                lastname.classList.add("invalid");
+             }
+            }
+
+
+     </script>
+ </body>
+</html>
